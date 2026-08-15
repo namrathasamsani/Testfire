@@ -1,0 +1,397 @@
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CREATE DATABASE testfire_login_analysis;
+CREATE DATABASE testfire_login_analysis
+*
+ERROR at line 1:
+ORA-01501: CREATE DATABASE failed
+ORA-01100: database already mounted
+
+
+SQL> CREATE TABLE users (
+  2      user_id NUMBER PRIMARY KEY,
+  3      username VARCHAR2(50),
+  4      password VARCHAR2(100),
+  5      email VARCHAR2(100),
+  6      login_status VARCHAR2(20)
+  7  );
+CREATE TABLE users (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> SELECT table_name FROM user_tables;
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNR_SESSION_EVOLVE$
+LOGMNR_GLOBAL$
+LOGMNR_PDB_INFO$
+LOGMNR_DID$
+LOGMNR_UID$
+LOGMNRGGC_GTLO
+LOGMNRGGC_GTCS
+LOGMNRC_DBNAME_UID_MAP
+LOGMNR_LOG$
+LOGMNR_PROCESSED_LOG$
+LOGMNR_SPILL$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNR_AGE_SPILL$
+LOGMNR_RESTART_CKPT_TXINFO$
+LOGMNR_ERROR$
+LOGMNR_RESTART_CKPT$
+LOGMNR_FILTER$
+LOGMNR_SESSION_ACTIONS$
+LOGMNR_PARAMETER$
+LOGMNR_SESSION$
+LOGMNR_PROFILE_TABLE_STATS$
+LOGMNR_PROFILE_PLSQL_STATS$
+REDO_DB
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+REDO_LOG
+ROLLING$CONNECTIONS
+ROLLING$DATABASES
+ROLLING$DIRECTIVES
+ROLLING$EVENTS
+ROLLING$PARAMETERS
+ROLLING$PLAN
+ROLLING$STATISTICS
+ROLLING$STATUS
+MVIEW$_ADV_WORKLOAD
+MVIEW$_ADV_BASETABLE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+MVIEW$_ADV_SQLDEPEND
+MVIEW$_ADV_PRETTY
+MVIEW$_ADV_TEMP
+MVIEW$_ADV_FILTER
+MVIEW$_ADV_LOG
+MVIEW$_ADV_FILTERINSTANCE
+MVIEW$_ADV_LEVEL
+MVIEW$_ADV_ROLLUP
+MVIEW$_ADV_AJG
+MVIEW$_ADV_FJG
+MVIEW$_ADV_GC
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+MVIEW$_ADV_CLIQUE
+MVIEW$_ADV_ELIGIBLE
+MVIEW$_ADV_OUTPUT
+MVIEW$_ADV_EXCEPTIONS
+MVIEW$_ADV_PARAMETERS
+MVIEW$_ADV_INFO
+MVIEW$_ADV_JOURNAL
+MVIEW$_ADV_PLAN
+AQ$_QUEUE_TABLES
+AQ$_KEY_SHARD_MAP
+AQ$_QUEUES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+AQ$_SCHEDULES
+AQ$_INTERNET_AGENTS
+AQ$_INTERNET_AGENT_PRIVS
+SCHEDULER_PROGRAM_ARGS_TBL
+SCHEDULER_JOB_ARGS_TBL
+LOGSTDBY$PARAMETERS
+LOGSTDBY$EVENTS
+LOGSTDBY$APPLY_MILESTONE
+LOGSTDBY$SCN
+LOGSTDBY$FLASHBACK_SCN
+LOGSTDBY$PLSQL
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGSTDBY$SKIP_TRANSACTION
+LOGSTDBY$SKIP
+LOGSTDBY$SKIP_SUPPORT
+LOGSTDBY$HISTORY
+LOGSTDBY$EDS_TABLES
+REPL_VALID_COMPAT
+REPL_SUPPORT_MATRIX
+SQLPLUS_PRODUCT_PROFILE
+HELP
+EMPLOYEE
+EMPLOYEES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+NEW_APPOINTMENTS
+USERS
+DOCTORS
+LOGMNR_GT_TAB_INCLUDE$
+LOGMNR_GT_USER_INCLUDE$
+LOGMNR_GT_XID_INCLUDE$
+LOGMNRT_MDDL$
+OL$
+OL$HINTS
+OL$NODES
+LOGMNR_DICTSTATE$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNRC_GTLO
+LOGMNRC_GTCS
+LOGMNRC_SEQ_GG
+LOGMNRC_CON_GG
+LOGMNRC_CONCOL_GG
+LOGMNRC_IND_GG
+LOGMNRC_INDCOL_GG
+LOGMNRC_SHARD_TS
+LOGMNRC_TSPART
+LOGMNRC_TS
+LOGMNRC_GSII
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNRC_GSBA
+LOGMNRC_USER
+LOGMNR_SEED$
+LOGMNR_DICTIONARY$
+LOGMNR_OBJ$
+LOGMNR_TAB$
+LOGMNR_COL$
+LOGMNR_ATTRCOL$
+LOGMNR_TS$
+LOGMNR_IND$
+LOGMNR_USER$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNR_TABPART$
+LOGMNR_TABSUBPART$
+LOGMNR_TABCOMPART$
+LOGMNR_TYPE$
+LOGMNR_COLTYPE$
+LOGMNR_ATTRIBUTE$
+LOGMNR_LOB$
+LOGMNR_CON$
+LOGMNR_CONTAINER$
+LOGMNR_CDEF$
+LOGMNR_CCOL$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNR_ICOL$
+LOGMNR_LOBFRAG$
+LOGMNR_INDPART$
+LOGMNR_INDSUBPART$
+LOGMNR_INDCOMPART$
+LOGMNR_LOGMNR_BUILDLOG
+LOGMNR_NTAB$
+LOGMNR_OPQTYPE$
+LOGMNR_SUBCOLTYPE$
+LOGMNR_KOPM$
+LOGMNR_PROPS$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+LOGMNR_ENC$
+LOGMNR_REFCON$
+LOGMNR_IDNSEQ$
+LOGMNR_PARTOBJ$
+LOGMNRP_CTAS_PART_MAP
+LOGMNR_SHARD_TS
+LOGSTDBY$APPLY_PROGRESS
+
+139 rows selected.
+
+SQL> DROP TABLE users;
+
+Table dropped.
+
+SQL> CREATE TABLE users (
+  2      user_id NUMBER PRIMARY KEY,
+  3      username VARCHAR2(50),
+  4      password VARCHAR2(100),
+  5      email VARCHAR2(100),
+  6      login_status VARCHAR2(20)
+  7  );
+
+Table created.
+
+SQL> CREATE TABLE testfire_users (
+  2      user_id NUMBER PRIMARY KEY,
+  3      username VARCHAR2(50),
+  4      password VARCHAR2(100),
+  5      email VARCHAR2(100),
+  6      login_status VARCHAR2(20)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO users VALUES
+  2  (1, 'admin', 'admin123', 'admin@gmail.com', 'SUCCESS');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO users VALUES
+  2  (2, 'user1', 'user123', 'user1@gmail.com', 'FAILED');
+
+1 row created.
+
+SQL> SELECT * FROM TESTFIRE_USERS;
+
+no rows selected
+
+SQL> SELECT * FROM TESTFIRE_USERS
+  2  WHERE LOGIN_STATUS='SUCCESS';
+
+no rows selected
+
+SQL> UPDATE TESTFIRE_USERS
+  2  SET LOGIN_STATUS='SUCCESS'
+  3  WHERE USER_ID=2;
+
+0 rows updated.
+
+SQL> INSERT INTO TESTFIRE_USERS VALUES
+  2  (1,'admin','admin123','admin@gmail.com','SUCCESS');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO TESTFIRE_USERS VALUES
+  2  (2,'user1','user123','user1@gmail.com','FAILED');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO TESTFIRE_USERS VALUES
+  2  (3,'testuser','test123','test@gmail.com','SUCCESS');
+
+1 row created.
+
+SQL> SELECT * FROM TESTFIRE_USERS;
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         1 admin
+admin123
+admin@gmail.com
+SUCCESS
+
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         2 user1
+user123
+user1@gmail.com
+FAILED
+
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         3 testuser
+test123
+test@gmail.com
+SUCCESS
+
+
+SQL> SELECT * FROM TESTFIRE_USERS
+  2  WHERE LOGIN_STATUS='SUCCESS';
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         1 admin
+admin123
+admin@gmail.com
+SUCCESS
+
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         3 testuser
+test123
+test@gmail.com
+SUCCESS
+
+
+SQL> SELECT * FROM TESTFIRE_USERS
+  2  WHERE LOGIN_STATUS='FAILED';
+
+   USER_ID USERNAME
+---------- --------------------------------------------------
+PASSWORD
+--------------------------------------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+LOGIN_STATUS
+--------------------
+         2 user1
+user123
+user1@gmail.com
+FAILED
+
+
+SQL> UPDATE TESTFIRE_USERS
+  2  SET LOGIN_STATUS='SUCCESS'
+  3  WHERE USER_ID=2;
+
+1 row updated.
+
+SQL> DELETE FROM TESTFIRE_USERS
+  2  WHERE USER_ID=3;
+
+1 row deleted.
+
+SQL> CREATE TABLE LOGIN_ATTEMPTS (
+  2      ATTEMPT_ID NUMBER PRIMARY KEY,
+  3      USER_ID NUMBER,
+  4      LOGIN_TIME DATE,
+  5      RESULT VARCHAR2(20)
+  6  );
+
+Table created.
+
+SQL> INSERT INTO LOGIN_ATTEMPTS VALUES
+  2  (101,1,SYSDATE,'SUCCESS');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO LOGIN_ATTEMPTS VALUES
+  2  (102,2,SYSDATE,'FAILED');
+
+1 row created.
